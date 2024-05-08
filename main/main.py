@@ -8,7 +8,7 @@ def calculate_profit(skin_price, platform_fee, steam):
     # Рассчитываем прибыль
     profit = steam_price - total_price
 
-    return profit
+    return profit, total_price
 
 def main():
     # Вводим данные от пользователя
@@ -17,10 +17,11 @@ def main():
     steam = float(input("Введите стоимость скина на Steam: "))
 
     # Вычисляем прибыль
-    profit = calculate_profit(skin_price, platform_fee, steam)
+    profit, total_price = calculate_profit(skin_price, platform_fee, steam)
 
     # Выводим результат, округленный до ближайшего целого
     print("Потенциальная прибыль при продаже на Steam:", round(profit, 2))
+    print("Проценты", round(((profit/total_price) * 100), 2))
 
 if __name__ == "__main__":
     main()
